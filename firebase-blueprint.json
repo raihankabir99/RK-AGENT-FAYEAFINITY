@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "Application project managed by Agent FayaFinity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 256 },
+        "description": { "type": "string", "maxLength": 1024 },
+        "ownerId": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "ownerId"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat message with Agent FayaFinity",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "projectId": { "type": "string", "maxLength": 128 },
+        "content": { "type": "string", "maxLength": 5000 },
+        "sender": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "projectId", "content", "sender"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/Project" },
+      "description": "User projects collection"
+    },
+    "/projects/{projectId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "Project chat messages subcollection"
+    }
+  }
+}

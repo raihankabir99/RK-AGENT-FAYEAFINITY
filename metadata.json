@@ -1,0 +1,6 @@
+{
+  "name": "RK AGENT FAYEAFINITY",
+  "description": "RK AGENT FAYEAFINITY - Personal AI Engineering Command Center",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
